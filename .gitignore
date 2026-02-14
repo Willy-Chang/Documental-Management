@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+data/
+storage/
+*.db
+*.db-wal
+*.db-shm
+.DS_Store
+Thumbs.db
