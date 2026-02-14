@@ -9,7 +9,7 @@ import ttkbootstrap as ttk
 from db.database import init_db
 from ui.main_window import MainWindow
 from ui.styles import apply_styles
-from config import get_icon_path, FONT_FAMILY
+from config import get_icon_path, FONT_FAMILY, COMPANY_NAME
 
 
 def main():
@@ -18,10 +18,10 @@ def main():
 
     # 建立主視窗
     root = ttk.Window(
-        title="工程圖管理系統",
+        title=f"{COMPANY_NAME} — 業務管理系統",
         themename="cosmo",
-        size=(1200, 700),
-        minsize=(900, 500),
+        size=(1280, 750),
+        minsize=(1000, 600),
     )
 
     # 設定全域字體 (Noto Sans CJK TC)

@@ -1,5 +1,6 @@
 import os
 import sys
+import getpass
 
 # 應用程式根目錄
 if getattr(sys, 'frozen', False):
@@ -20,7 +21,6 @@ DB_PATH = os.path.join(DATA_DIR, 'dwg_manager.db')
 THUMBNAIL_MAX_SIZE = (400, 300)
 
 # 預設操作人員（使用 Windows 登入名稱）
-import getpass
 DEFAULT_OPERATOR = getpass.getuser()
 
 # 圖面狀態選項
@@ -83,6 +83,7 @@ BACKUP_DIR = r'D:\OneDrive\公司圖面'
 # 資源目錄
 ASSETS_DIR = os.path.join(APP_DIR, 'assets')
 
+
 def get_icon_path():
     """自動尋找 assets/ 下的 ICO 圖示檔"""
     ico_path = os.path.join(ASSETS_DIR, 'icon.ico')
@@ -94,6 +95,114 @@ def get_icon_path():
                 return os.path.join(ASSETS_DIR, f)
     return None
 
+
+# ==================== 業務管理系統設定 ====================
+
+# 幣別選項
+CURRENCY_OPTIONS = ['TWD', 'USD', 'EUR', 'JPY', 'CNY', 'GBP']
+
+# 單位選項
+UNIT_OPTIONS = ['PCS', 'SET', 'KG', 'G', 'M', 'CM', 'MM', 'L', 'LOT', '式']
+
+# 付款條件選項
+PAYMENT_TERMS_OPTIONS = [
+    '月結30天',
+    '月結60天',
+    '月結90天',
+    '貨到付款',
+    'T/T 預付',
+    'T/T 30天',
+    'T/T 60天',
+    'L/C 即期',
+    'L/C 30天',
+    'D/P 即期',
+    '訂金50% / 出貨前50%',
+    '其他',
+]
+
+# 交貨條件選項 (Incoterms)
+DELIVERY_TERMS_OPTIONS = [
+    'EXW 工廠交貨',
+    'FOB 船上交貨',
+    'CIF 到岸價',
+    'CFR 運費在內價',
+    'DAP 目的地交貨',
+    'DDP 稅訖交貨',
+    '自取',
+    '含運送',
+    '其他',
+]
+
+# 報價單狀態
+QUOTATION_STATUS = ['草稿', '已報價', '已成交', '已失效', '已取消']
+
+# 請購單狀態
+PR_STATUS = ['草稿', '待審核', '已核准', '已採購', '已驗收', '已取消']
+
+# 請購品項分類
+PR_CATEGORIES = ['原物料', '零件', '工具', '耗材', '設備', '外包加工', '其他']
+
+# 請購緊急程度
+PR_URGENCY = ['一般', '急件', '特急']
+
+# 客戶訂單狀態
+ORDER_STATUS = ['新訂單', '生產中', '部分出貨', '已出貨', '已完成', '已取消']
+
+# 發票狀態
+INVOICE_STATUS = ['未付', '部分付款', '已付清', '逾期', '已作廢']
+
+# 出口文件類型
+EXPORT_DOC_TYPES = [
+    '商業發票 (Commercial Invoice)',
+    '裝箱單 (Packing List)',
+    '提單 (Bill of Lading)',
+    '產地證明 (Certificate of Origin)',
+    '檢驗報告 (Inspection Report)',
+    '保險單 (Insurance Policy)',
+    '報關單 (Customs Declaration)',
+    '其他',
+]
+
+# 出口文件狀態
+EXPORT_DOC_STATUS = ['準備中', '已出具', '已寄出', '已歸檔']
+
+# 運輸方式
+SHIPPING_METHODS = ['海運', '空運', '快遞', '陸運', '自取']
+
+# 生產訂單狀態
+PRODUCTION_STATUS = ['待排程', '生產中', '暫停', '已完成', '已取消']
+
+# 生產優先順序
+PRODUCTION_PRIORITY = ['低', '中', '高', '緊急']
+
+# 生產任務狀態
+PRODUCTION_TASK_STATUS = ['待開始', '進行中', '已完成', '已取消']
+
+# 機器狀態
+MACHINE_STATUS = ['正常', '維修中', '待維修', '已報廢', '停用']
+
+# 維修類型
+MAINTENANCE_TYPES = ['定期保養', '故障維修', '預防維修', '緊急維修', '改善維修']
+
+# 維修紀錄狀態
+MAINTENANCE_STATUS = ['待處理', '處理中', '已完成', '已關閉']
+
+# 自動編號前綴
+DOC_NUMBER_PREFIX = {
+    'quotation': 'QT',
+    'purchase_requisition': 'PR',
+    'customer_order': 'SO',
+    'invoice': 'INV',
+    'production_order': 'MO',
+    'maintenance': 'MR',
+}
+
+
 # 確保必要目錄存在
-for d in [DATA_DIR, STORAGE_DIR, THUMBNAIL_DIR, DRAWINGS_DIR, ASSETS_DIR, BACKUP_DIR]:
+for d in [DATA_DIR, STORAGE_DIR, THUMBNAIL_DIR, DRAWINGS_DIR, ASSETS_DIR]:
     os.makedirs(d, exist_ok=True)
+# 備份目錄容錯（外部磁碟可能不存在）
+try:
+    os.makedirs(BACKUP_DIR, exist_ok=True)
+except OSError:
+    pass
