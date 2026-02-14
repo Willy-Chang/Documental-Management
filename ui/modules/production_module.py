@@ -47,7 +47,7 @@ class ProductionModule(ttk.Frame):
         paned.pack(fill=BOTH, expand=True, padx=5, pady=5)
 
         # 上方：生產單清單
-        list_frame = ttk.LabelFrame(paned, text="生產單清單", padding=5)
+        list_frame = ttk.LabelFrame(paned, text="生產單清單")
         paned.add(list_frame, weight=2)
 
         cols = ('id', 'po', 'product', 'qty', 'order', 'client',
@@ -82,7 +82,7 @@ class ProductionModule(ttk.Frame):
         self.tree.bind('<Double-1>', lambda e: self._on_edit())
 
         # 下方：生產任務清單
-        task_frame = ttk.LabelFrame(paned, text="生產任務", padding=5)
+        task_frame = ttk.LabelFrame(paned, text="生產任務")
         paned.add(task_frame, weight=2)
 
         task_toolbar = ttk.Frame(task_frame)

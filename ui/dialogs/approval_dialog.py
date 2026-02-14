@@ -29,7 +29,7 @@ class ApprovalDialog(ttk.Toplevel):
         frame.pack(fill=BOTH, expand=True)
 
         # 資訊區
-        info_frame = ttk.LabelFrame(frame, text="簽核資訊", padding=10)
+        info_frame = ttk.LabelFrame(frame, text="簽核資訊")
         info_frame.pack(fill=X, pady=(0, 10))
 
         ttk.Label(info_frame, text=f"版次：{self.rev_code}").pack(anchor=W)

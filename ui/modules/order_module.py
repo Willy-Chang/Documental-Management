@@ -42,7 +42,7 @@ class OrderModule(ttk.Frame):
         paned = ttk.PanedWindow(self, orient=VERTICAL)
         paned.pack(fill=BOTH, expand=True, padx=5, pady=5)
 
-        list_frame = ttk.LabelFrame(paned, text="訂單清單", padding=5)
+        list_frame = ttk.LabelFrame(paned, text="訂單清單")
         paned.add(list_frame, weight=3)
 
         cols = ('id', 'number', 'client', 'po', 'order_date', 'delivery',
@@ -72,7 +72,7 @@ class OrderModule(ttk.Frame):
         self.tree.bind('<<TreeviewSelect>>', self._on_select)
         self.tree.bind('<Double-1>', lambda e: self._on_edit())
 
-        detail_frame = ttk.LabelFrame(paned, text="訂單品項", padding=5)
+        detail_frame = ttk.LabelFrame(paned, text="訂單品項")
         paned.add(detail_frame, weight=2)
 
         item_toolbar = ttk.Frame(detail_frame)

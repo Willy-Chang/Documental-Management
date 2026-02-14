@@ -44,7 +44,7 @@ class MaintenanceModule(ttk.Frame):
         paned.pack(fill=BOTH, expand=True, padx=5, pady=5)
 
         # 上方：機器清單
-        machine_frame = ttk.LabelFrame(paned, text="機器設備清單", padding=5)
+        machine_frame = ttk.LabelFrame(paned, text="機器設備清單")
         paned.add(machine_frame, weight=2)
 
         machine_toolbar = ttk.Frame(machine_frame)
@@ -86,7 +86,7 @@ class MaintenanceModule(ttk.Frame):
         self.machine_tree.bind('<Double-1>', lambda e: self._edit_machine())
 
         # 下方：維修紀錄
-        record_frame = ttk.LabelFrame(paned, text="維修紀錄", padding=5)
+        record_frame = ttk.LabelFrame(paned, text="維修紀錄")
         paned.add(record_frame, weight=3)
 
         record_toolbar = ttk.Frame(record_frame)

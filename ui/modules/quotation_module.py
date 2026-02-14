@@ -50,7 +50,7 @@ class QuotationModule(ttk.Frame):
         paned.pack(fill=BOTH, expand=True, padx=5, pady=5)
 
         # 上方：報價單清單
-        list_frame = ttk.LabelFrame(paned, text="報價單清單", padding=5)
+        list_frame = ttk.LabelFrame(paned, text="報價單清單")
         paned.add(list_frame, weight=3)
 
         cols = ('id', 'number', 'client', 'subject', 'currency', 'total', 'status', 'date')
@@ -80,7 +80,7 @@ class QuotationModule(ttk.Frame):
         self.tree.bind('<Double-1>', lambda e: self._on_edit())
 
         # 下方：品項明細
-        detail_frame = ttk.LabelFrame(paned, text="品項明細", padding=5)
+        detail_frame = ttk.LabelFrame(paned, text="品項明細")
         paned.add(detail_frame, weight=2)
 
         item_toolbar = ttk.Frame(detail_frame)

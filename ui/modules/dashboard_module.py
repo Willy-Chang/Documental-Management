@@ -70,7 +70,7 @@ class DashboardModule(ttk.Frame):
                           "台設備停機/待修", '#EF5350')
 
         # 系統資訊
-        info_frame = ttk.LabelFrame(self.card_container, text="系統資訊", padding=10)
+        info_frame = ttk.LabelFrame(self.card_container, text="系統資訊")
         info_frame.pack(fill=X, pady=(15, 0))
 
         features = [
