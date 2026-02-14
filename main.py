@@ -18,7 +18,7 @@ def main():
 
     # 建立主視窗
     root = ttk.Window(
-        title=f"{COMPANY_NAME} — 業務管理系統",
+        title=f"{COMPANY_NAME} — 行政管理系統",
         themename="cosmo",
         size=(1280, 750),
         minsize=(1000, 600),

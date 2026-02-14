@@ -41,7 +41,7 @@ class MainWindow:
 
     def __init__(self, root):
         self.root = root
-        self.root.title(f"{COMPANY_NAME} — 業務管理系統")
+        self.root.title(f"{COMPANY_NAME} — 行政管理系統")
         self.root.geometry("1280x750")
         self.root.minsize(1000, 600)
 
@@ -513,7 +513,7 @@ class MainWindow:
                   font=(FONT_FAMILY, 16, 'bold'),
                   bootstyle=PRIMARY).pack(pady=(0, 10))
 
-        ttk.Label(frame, text="業務管理系統", font=(FONT_FAMILY, 14, 'bold')).pack()
+        ttk.Label(frame, text="行政管理系統", font=(FONT_FAMILY, 14, 'bold')).pack()
         ttk.Label(frame, text="v2.0", font=(FONT_FAMILY, 10)).pack(pady=(0, 10))
 
         info_text = (

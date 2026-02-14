@@ -20,7 +20,7 @@ class DashboardModule(ttk.Frame):
         header.pack(fill=X)
         ttk.Label(header, text=f"{COMPANY_NAME}", font=(FONT_FAMILY, 18, 'bold'),
                   bootstyle=PRIMARY).pack(side=LEFT)
-        ttk.Label(header, text="業務管理系統", font=(FONT_FAMILY, 14),
+        ttk.Label(header, text="行政管理系統", font=(FONT_FAMILY, 14),
                   foreground='#666666').pack(side=LEFT, padx=(10, 0), pady=(4, 0))
 
         ttk.Button(header, text="重新整理", command=self.refresh,
